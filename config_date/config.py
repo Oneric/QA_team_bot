@@ -18,9 +18,6 @@ class TgMainChat:
 @dataclass
 class Config:
     tg_bot: TgBot
-    tg_chat: TgChat
-    tg_main_chat: TgMainChat
-
 
 
 def load_config(path: str | None = None) -> Config:
@@ -31,11 +28,5 @@ def load_config(path: str | None = None) -> Config:
     return Config(
         tg_bot=TgBot(
             tg_token=env('BOT_TOKEN')
-                    ),
-        tg_chat=TgChat(
-            tg_chat_id=env('CHAT_ID')
-        ),
-        tg_main_chat=TgMainChat(
-            tg_main_chat_id=env('MAIN_CHAT_ID')
-        )
+                    )
             )
