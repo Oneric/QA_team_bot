@@ -1,4 +1,4 @@
-from aiogram import Router
+from aiogram import Router, Bot
 from aiogram.types import Message
 from aiogram.filters import CommandStart, Command
 
@@ -17,21 +17,25 @@ async def process_start_command(message: Message):
     await message.answer('Погнали.. ', reply_markup=keyboard_start)
 
 @router.message(Command("время"))
-async def deach():
-    await send_message(LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['time'], LEXICON_MAIN_THREADS['General'])
+async def deach(bot: Bot, message: Message):
+    await send_message(bot, LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['time'], LEXICON_MAIN_THREADS['General'])
 
 @router.message(Command("душно"))
-async def deach():
-    await send_message(LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['window'], LEXICON_MAIN_THREADS['General'])
+async def deach(bot: Bot):
+    await send_message(bot, LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['window'], LEXICON_MAIN_THREADS['General'])
 
 @router.message(Command("пока"))
-async def deach():
-    await send_message(LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['bye'], LEXICON_MAIN_THREADS['General'])
+async def deach(bot: Bot):
+    await send_message(bot, LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['bye'], LEXICON_MAIN_THREADS['General'])
 
 @router.message(Command("предупреждение"))
-async def deach():
-    await send_message(LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['notification'], LEXICON_MAIN_THREADS['General'])
+async def deach(bot: Bot):
+    await send_message(bot, LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['notification'], LEXICON_MAIN_THREADS['General'])
 
 @router.message(Command("зарядка"))
-async def deach():
-    await send_message(LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['charge'], LEXICON_MAIN_THREADS['General'])
+async def deach(bot: Bot):
+    await send_message(bot, LEXICON_CHAT_ID['OFFICE_TOMSK'], LEXICON_TIME['charge'], LEXICON_MAIN_THREADS['General'])
+
+@router.message(Command("тест"))
+async def deach(bot: Bot):
+    await send_message(bot, LEXICON_CHAT_ID['QA_TEAM'], LEXICON_TIME['test'], LEXICON_QA_THREADS['Флудильня'])
